@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   aux_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 16:16:17 by pillesca          #+#    #+#             */
-/*   Updated: 2025/03/08 12:03:09 by pillesca         ###   ########.fr       */
+/*   Created: 2025/03/08 12:42:59 by pillesca          #+#    #+#             */
+/*   Updated: 2025/03/08 12:43:12 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib/push_swap.h"
 
 /**
- * Body of the executable
+ * Sorts a stack of 3 elements
  * 
- * @param[in] argc Number of arguments
- * @param[in] argv String array input
+ * @param[in] stack Stack to sort
 */
-int	main(int argc, char *argv[])
+void	ft_sort_three(t_stack **stack)
 {
-	if (argc < 2)
-		exit(EXIT_FAILURE);
-	ft_chk_args(argc, argv);
-	ft_push_swap(argc, argv);
-	exit(EXIT_SUCCESS);
+	if ((*stack)->nb == ft_find_min(*stack))
+	{
+		ft_rra(stack);
+		ft_sa(stack);
+	}
+	else if ((*stack)->nb == ft_find_max(*stack))
+	{
+		ft_ra(stack);
+		if (!ft_chk_sorted((*stack)))
+			ft_sa(stack);
+	}
+	else
+	{
+		if (ft_find_index((*stack), ft_find_max(*stack)) == 1)
+			ft_rra(stack);
+		else
+			ft_sa(stack);
+	}
 }
