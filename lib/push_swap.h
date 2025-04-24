@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 16:16:29 by pillesca          #+#    #+#             */
-/*   Updated: 2025/03/08 12:59:25 by pillesca         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:02:19 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,13 @@ t_stack	*ft_find_last(t_stack *stack);
 int		ft_find_min(t_stack *stack);
 int		ft_find_max(t_stack *stack);
 int		ft_find_index(t_stack *stack, int nb);
+int		ft_find_new_b(t_stack *s_b, int nb);
+int		ft_find_new_a(t_stack *s_a, int nb);
+t_move	ft_best_ab_push(t_stack *s_a, t_stack *s_b);
+t_move	ft_best_ba_push(t_stack *s_a, t_stack *s_b);
+void	ft_apply_rarb(t_stack **s_a, t_stack **s_b, t_move move);
+void	ft_apply_rrarrb(t_stack **s_a, t_stack **s_b, t_move move);
+void	ft_apply_rrarb(t_stack **s_a, t_stack **s_b, t_move move);
+void	ft_apply_rarrb(t_stack **s_a, t_stack **s_b, t_move move);
 
 #endif

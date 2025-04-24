@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:02:38 by pillesca          #+#    #+#             */
-/*   Updated: 2025/03/08 13:01:51 by pillesca         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:08:45 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 */
 static void	ft_pop_sort(t_stack **s_a, t_stack **s_b)
 {
+	t_move	move;
+
+	while (*s_b)
+	{
+		move = ft_best_ba_push(*s_a, *s_b);
+		if (move.rotation == rarb)
+			ft_apply_rarb(s_a, s_b, move);
+		else if (move.rotation == rrarrb)
+			ft_apply_rrarrb(s_a, s_b, move);
+		else if (move.rotation == rrarb)
+			ft_apply_rrarb(s_a, s_b, move);
+		else if (move.rotation == rarrb)
+			ft_apply_rarrb(s_a, s_b, move);
+	}
 }
 
 /**
@@ -28,6 +42,20 @@ static void	ft_pop_sort(t_stack **s_a, t_stack **s_b)
 */
 static void	ft_push_sort(t_stack **s_a, t_stack **s_b)
 {
+	t_move	move;
+
+	while (ft_stack_size(*s_a) > 3 && !ft_chk_sorted(*s_a))
+	{
+		move = ft_best_ab_push(*s_a, *s_b);
+		if (move.rotation == rarb)
+			ft_apply_rarb(s_a, s_b, move);
+		else if (move.rotation == rrarrb)
+			ft_apply_rrarrb(s_a, s_b, move);
+		else if (move.rotation == rrarb)
+			ft_apply_rrarb(s_a, s_b, move);
+		else if (move.rotation == rarrb)
+			ft_apply_rarrb(s_a, s_b, move);
+	}
 }
 
 /**
