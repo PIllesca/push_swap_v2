@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:49:19 by pillesca          #+#    #+#             */
-/*   Updated: 2025/03/08 11:56:22 by pillesca         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:16:44 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	ft_chk_repeat(long nb, char **args, int i)
 	i++;
 	while (args[i])
 	{
-		if (ft_atol(args[i]) == nb)
+		if (ft_atoi(args[i]) == nb)
 			return (0);
 		i++;
 	}
@@ -105,7 +105,7 @@ void	ft_chk_args(int argc, char *argv[])
 	}
 	while (args[i])
 	{
-		tmp = ft_atol(args[i]);
+		tmp = ft_atoi(args[i]);
 		if (!ft_chk_digit(args[i]) || !ft_chk_repeat(tmp, args, i))
 			ft_error(args, argc);
 		i++;
