@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:49:19 by pillesca          #+#    #+#             */
-/*   Updated: 2025/04/24 19:16:44 by pillesca         ###   ########.fr       */
+/*   Updated: 2025/04/26 23:29:18 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int	ft_chk_digit(char *str)
 {
 	if (*str == '-' || *str == '+')
 		str++;
+	if (*str == '\0')
+		return (0);
 	while (*str)
 	{
 		if (ft_isdigit(*str))
